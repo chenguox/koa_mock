@@ -1,0 +1,27 @@
+{
+  "name": "cms-koa",
+  "version": "1.0.0",
+  "description": "基于 koa 开发的管理系统",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coder-Cgx/cms-koa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Coder-Cgx/cms-koa/issues"
+  },
+  "homepage": "https://github.com/Coder-Cgx/cms-koa#readme",
+  "dependencies": {
+    "koa": "^2.13.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
