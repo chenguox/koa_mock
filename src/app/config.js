@@ -1,5 +1,8 @@
-const dotenv = require('dotenv')
+const dotenv = require("dotenv");
 
-dotenv.config()
+// 排查 dotenv 错误，.env 应该放在根目录下
+// console.log(require("dotenv").config());
 
-module.exports = { APP_PORT } = process.env
+dotenv.config();
+
+module.exports = { APP_PORT } = process.env;

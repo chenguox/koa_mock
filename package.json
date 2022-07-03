@@ -20,7 +20,9 @@
   "homepage": "https://github.com/Coder-Cgx/cms-koa#readme",
   "dependencies": {
     "dotenv": "^16.0.1",
-    "koa": "^2.13.4"
+    "koa": "^2.13.4",
+    "koa-router": "^10.1.1",
+    "mockjs": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

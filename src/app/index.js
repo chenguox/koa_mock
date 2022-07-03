@@ -1,5 +1,10 @@
-const Koa = require('koa')
+const Koa = require("koa");
 
-const app = new Koa()
+const useRoutes = require("../router");
 
-module.exports = app
+const app = new Koa();
+
+app.useRoutes = useRoutes;
+app.useRoutes();
+
+module.exports = app;
