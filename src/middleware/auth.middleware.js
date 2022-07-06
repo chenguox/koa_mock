@@ -24,6 +24,7 @@ const verifyLogin = async (ctx, next) => {
     return ctx.app.emit('error', error, ctx)
   }
 
+  // 验证通过，放行之前，存一下 user, 用来生成 token
   ctx.user = userInfo
   await next()
 }
