@@ -1,4 +1,5 @@
 const userService = require("../service/user.service");
+const handleReulst = require('../utils/result-handle')
 
 class UserController {
   async getUserInfoById(ctx, next) {
@@ -9,7 +10,7 @@ class UserController {
     const result = await userService.getUserById(userId);
 
     // 返回数据
-    ctx.body = result;
+    ctx.body = handleReulst(result);
   }
 }
 

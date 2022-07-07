@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { PRIVATE_KEY } = require('../app/config')
+const handleResult = require('../utils/result-handle')
 
 class AuthController {
   async login(ctx, next) {
@@ -14,7 +15,7 @@ class AuthController {
     })
 
     // 返回数据
-    ctx.body = { id, name, token }
+    ctx.body = handleResult({ id, name, token })
   }
 
   async success(ctx, next) {

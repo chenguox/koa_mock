@@ -10,6 +10,13 @@ app.useRoutes = useRoutes;
 app.use(bodyParser())
 app.useRoutes();
 
+// app.use((ctx,next)=>{
+//   ctx.body = {
+//     code: '0',
+//     data: ctx.result
+//   }
+// })
+
 // 添加一个 'error' 侦听器
 app.on('error', errorHandler)
 

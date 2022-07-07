@@ -1,4 +1,5 @@
 const menuService = require("../service/role.service");
+const handleResult = require('../utils/result-handle')
 
 class MenuController {
   async getMenuInfoByRoleId(ctx, next) {
@@ -10,7 +11,7 @@ class MenuController {
     const result = await menuService.getMenuByRoleId(roleId);
 
     // 返回数据
-    ctx.body = result;
+    ctx.body = handleResult(result);
   }
 }
 
