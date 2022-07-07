@@ -11,7 +11,7 @@ class UserService {
 
   // 根据用户id获取用户信息
   async getUserById(id) {
-    const userInfo = user.userInfo;
+    const userInfo = user.userInfoById;
     return userInfo;
   }
 }
