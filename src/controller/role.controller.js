@@ -1,4 +1,4 @@
-const menuService = require("../service/menu.service");
+const menuService = require("../service/role.service");
 
 class MenuController {
   async getMenuInfoByRoleId(ctx, next) {

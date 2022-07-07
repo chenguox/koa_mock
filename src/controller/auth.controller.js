@@ -16,6 +16,10 @@ class AuthController {
     // 返回数据
     ctx.body = { id, name, token }
   }
+
+  async success(ctx, next) {
+    ctx.body = "授权成功"
+  }
 }
 
 module.exports = new AuthController()

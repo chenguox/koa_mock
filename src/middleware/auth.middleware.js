@@ -1,6 +1,9 @@
 const errorTypes = require('../constants/error-types')
 const userService = require('../service/user.service')
+const { PUBLIC_KEY } = require('../app/config')
+const jwt = require('jsonwebtoken')
 
+// 验证用户登录的中间件
 const verifyLogin = async (ctx, next) => {
   // 1、获取用户名和密码
   const { name, password } = ctx.request.body;
@@ -29,6 +32,35 @@ const verifyLogin = async (ctx, next) => {
   await next()
 }
 
+// 用于解析验证 token 的中间件
+const verifyAuth = async (ctx, next) => {
+  console.log("验证授权中间件~");
+  // 1、获取 token
+  const authorization = ctx.header.authorization;
+
+  if(!authorization){
+    const error = new Error(errorTypes.UNAUTHORIZATION);
+    return ctx.app.emit('error', error, ctx);
+  }
+
+  const token = authorization.replace('Bearer ','');
+
+  // 2、验证 token(id、name/iat/exp)
+  try {
+    const result = jwt.verify(token, PUBLIC_KEY, {
+      algorithms: ["RS256"]
+    })
+    console.log('验证result结果：', result);
+    ctx.user = result;
+    await next()
+  } catch (err) {
+    console.log(err);
+    const error = new Error(errorTypes.UNAUTHORIZATION)
+    ctx.app.emit('error', error, ctx)
+  }
+}
+
 module.exports = {
-  verifyLogin
+  verifyLogin,
+  verifyAuth
 }
